@@ -22,8 +22,8 @@
     <services>
         <service>
             <name>ELASTICSEARCH</name>
-            <version>2.3.3</version>
-            <extends>common-services/ELASTICSEARCH/2.3.3</extends>
+            <version>1.7.5</version>
+            <extends>common-services/ELASTICSEARCH/1.7.5</extends>
         </service>
     </services>
 </metainfo>
