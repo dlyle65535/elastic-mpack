@@ -40,7 +40,7 @@ class Elasticsearch(Script):
         import params
         env.set_params(params)
         stop_cmd = "service elasticsearch stop"
-        print 'Stop the Slave'
+        Logger.info('Stop the Slave')
         Execute(stop_cmd)
 
     def start(self, env, upgrade_type=None):
@@ -48,14 +48,14 @@ class Elasticsearch(Script):
         env.set_params(params)
         self.configure(env)
         start_cmd = "service elasticsearch start"
-        print 'Start the Slave'
+        Logger.info('Start the Slave')
         Execute(start_cmd)
 
     def status(self, env):
         import params
         env.set_params(params)
         status_cmd = "service elasticsearch status"
-        print 'Status of the Slave'
+        Logger.info('Status of the Slave')
         Execute(status_cmd)
 
     def restart(self, env):
@@ -63,7 +63,7 @@ class Elasticsearch(Script):
         env.set_params(params)
         self.configure(env)
         restart_cmd = "service elasticsearch restart"
-        print 'Restarting the Slave'
+        Logger.info('Restarting the Slave')
         Execute(restart_cmd)
 
 
