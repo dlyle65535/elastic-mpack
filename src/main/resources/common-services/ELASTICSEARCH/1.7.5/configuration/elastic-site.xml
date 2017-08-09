@@ -23,7 +23,7 @@
     <!-- Configurations -->
     <property>
         <name>cluster_name</name>
-        <value>metron</value>
+        <value>es1</value>
         <description>Elasticsearch Cluster Name identifies your Elasticsearch subsystem</description>
     </property>
     <property>

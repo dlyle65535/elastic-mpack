@@ -1,8 +1,8 @@
 {
   "type": "full-release",
-  "name": "metron-ambari.mpack",
-  "version": "0.4.1.0",
-  "description": "Ambari Management Pack for Apache Metron",
+  "name": "elastic-ambari.mpack",
+  "version": "0.0.0.1",
+  "description": "Ambari Management Pack for Elasticsearch",
   "prerequisites": {
     "min-ambari-version": "2.4.0.0",
     "min-stack-versions": [
