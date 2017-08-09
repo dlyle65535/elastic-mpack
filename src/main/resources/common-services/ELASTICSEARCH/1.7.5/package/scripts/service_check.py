@@ -39,7 +39,7 @@ class ServiceCheck(Script):
         # Make sure the service is actually up.  We can live without everything allocated.
         # Need both the retry and ES timeout.  Can hit the URL before ES is ready at all and get no response, but can
         # also hit ES before things are green.
-        host = "localhost:9200"
+        host = params.hostname + ":" + params.http_port
         Execute("curl -XGET 'http://%s/_cluster/health?wait_for_status=green&timeout=120s'" % host,
                 logoutput=True,
                 tries=6,

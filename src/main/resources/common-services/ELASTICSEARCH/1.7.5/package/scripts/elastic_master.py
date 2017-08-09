@@ -41,7 +41,7 @@ class Elasticsearch(Script):
         import params
         env.set_params(params)
         stop_cmd = "service elasticsearch stop"
-        print 'Stop the Master'
+        Logger.info('Stop the Master')
         Execute(stop_cmd)
 
     def start(self, env, upgrade_type=None):
@@ -50,14 +50,14 @@ class Elasticsearch(Script):
 
         self.configure(env)
         start_cmd = "service elasticsearch start"
-        print 'Start the Master'
+        Logger.info('Start the Master')
         Execute(start_cmd)
 
     def status(self, env):
         import params
         env.set_params(params)
         status_cmd = "service elasticsearch status"
-        print 'Status of the Master'
+        Logger.info('Status of the Master')
         Execute(status_cmd)
 
     def restart(self, env):
@@ -65,7 +65,7 @@ class Elasticsearch(Script):
         env.set_params(params)
         self.configure(env)
         restart_cmd = "service elasticsearch restart"
-        print 'Restarting the Master'
+        Logger.info('Restarting the Master')
         Execute(restart_cmd)
 
 
