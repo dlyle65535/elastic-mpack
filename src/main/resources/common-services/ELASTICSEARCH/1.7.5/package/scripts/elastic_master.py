@@ -60,7 +60,7 @@ class Elasticsearch(Script):
         env.set_params(params)
         status_cmd = "service elasticsearch status"
         Logger.info('Status of the Master')
-        return_code = get_user_call_output(status_cmd,
+        return_code,std_out,std_err = get_user_call_output(status_cmd,
                                            is_checked_call=False)
         Logger.info('Return code was %s ' % return_code)
         return return_code
