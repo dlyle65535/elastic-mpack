@@ -20,6 +20,8 @@ limitations under the License.
 from resource_management.core.resources.system import Execute
 from resource_management.libraries.script import Script
 from resource_management.core.logger import Logger
+from resource_management.libraries.functions.get_user_call_output import \
+    get_user_call_output
 
 from elastic import elastic
 
@@ -41,7 +43,7 @@ class Elasticsearch(Script):
         import params
         env.set_params(params)
         stop_cmd = "service elasticsearch stop"
-        print 'Stop the Master'
+        Logger.info('Stop the Master')
         Execute(stop_cmd)
 
     def start(self, env, upgrade_type=None):
@@ -50,22 +52,26 @@ class Elasticsearch(Script):
 
         self.configure(env)
         start_cmd = "service elasticsearch start"
-        print 'Start the Master'
+        Logger.info('Start the Master')
         Execute(start_cmd)
 
     def status(self, env):
         import params
         env.set_params(params)
         status_cmd = "service elasticsearch status"
-        print 'Status of the Master'
-        Execute(status_cmd)
+        Logger.info('Status of the Master')
+        return_code = get_user_call_output(status_cmd,
+                                           is_checked_call=False)
+        Logger.info('Return code was %s ' % return_code)
+        return return_code
+
 
     def restart(self, env):
         import params
         env.set_params(params)
         self.configure(env)
         restart_cmd = "service elasticsearch restart"
-        print 'Restarting the Master'
+        Logger.info('Restarting the Master')
         Execute(restart_cmd)
 
 
